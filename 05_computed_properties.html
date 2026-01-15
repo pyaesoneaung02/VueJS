@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    p {
+        color: red;
+    }
+</style>
+
+<body>
+    <div id="testing">
+        <h1>{{getLength}}</h1>
+        {{message}}
+        <h1>{{reverse}}</h1>
+        <!-- <button @click="show()">Click</button> -->
+        <button @click="show">Click</button>
+        <!-- <h1>{{ now }}</h1> -->
+    </div>
+</body>
+<!-- development version, includes helpful console warnings -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script>
+    let app = new Vue({
+        el: '#testing',
+        data: {
+           message: 'hello vue'
+        },
+        //computed properties
+        computed: {
+            getLength(){
+                return this.message.length; // must return
+            },
+            reverse() {
+                return this.message.split("").reverse().join("*");
+                // let newMessage = this.message.split("");
+                // let reverseMesage = newMessage.reverse();
+                // let response = reverseMesage.join("");
+                // return response;
+            },
+            // now:{
+            //     return Date.now()
+            // }
+        },
+       
+        //methods propertis
+        methods: {
+            show(){
+                // alert(this.message.length);
+                alert("hello");
+            }
+        }
+    })
+</script>
+
+</html>

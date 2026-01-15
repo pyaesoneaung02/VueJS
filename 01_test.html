@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{message}}</h1>
+        <!-- expression => OK / statement => not OK -->
+         <h1>{{ 1+1 }}</h1>
+        <h1>{{ message.split("").join('-') }}</h1>
+        <h1>{{ status ? "ok thi sis true" : "this is just false" }}</h1>
+        <h1>{{ year + 100 }}</h1>
+        <h1>{{ age + 10 }}</h1>
+    </div>
+</body>
+<!-- CDN => development -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            message: 'hello this is testing',
+            status: false,
+            year: 2025,
+            age: 22
+        }
+    })
+</script>
+</html>

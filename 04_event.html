@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    p{
+        color: red;
+    }
+</style>
+<body>
+    <div id="testing">
+        <!-- <button v-on:click="clickMe()">Click Me</button> -->
+        <!-- <button @click="clickMe()">Click Me</button> -->
+        <h1>{{number}}</h1>
+        <button @click="dec()">Decrease</button>
+        <button @click="inc()">Increase</button>
+        <p v-if="number < 0">It is minus number</p>
+        <p v-if="number == 0">It is equal zero</p>
+        <p v-if="number > 0">It is plus number</p>
+
+        <!-- <input type="text" v-model="myText" v-on:keyup.enter="send()"> -->
+        <input type="text" v-model="myText" @keyup.enter="send()">
+        <button @click="send()">Send</button>
+    </div>
+</body>
+<!-- development version, includes helpful console warnings -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script>
+    let app = new Vue({
+        el: '#testing',
+        data: {
+            number: 0,
+            myText: 'this is testing'
+        },
+        // methods: {
+        //     clickMe:function() {
+        //         alert('Hello World')
+        //     }
+        // }
+        // methods: {
+        //     clickMe() {
+        //         alert('Hello World')
+        //     }
+        // }
+        methods: {
+            dec() {
+                this.number--;
+            },
+            inc() {
+                this.number++;
+            },
+            send(){
+                console.log(this.myText);
+                this.myText = ''
+            }
+        }
+    })
+</script>
+</html>
